@@ -74,7 +74,7 @@
 		},
 		{
 			"comment": "Functions call",
-			"match": "(?<=<)([a-zA-Z_][\\w-]*)",
+			"match": "(?<=[<\\[])([a-zA-Z_][\\w-]*)",
 			"captures": {
 				"1": {
 					"name": "support.function.refal-5-lambda"
@@ -113,6 +113,10 @@
 				{
 					"name": "punctuation.other.bracket.angle.refal-5-lambda",
 					"match": "\\<|\\>"
+				},
+				{
+					"name": "punctuation.other.bracket.square.refal-5-lambda",
+					"match": "\\[|\\]"
 				}
 			]
 		},
