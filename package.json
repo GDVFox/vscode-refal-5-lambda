@@ -1,7 +1,13 @@
 {
-    "name": "refal-5-lambda-highlight",
+    "name": "refal-5-lambda",
     "displayName": "Refal-5λ",
+    "publisher": "gdvfox",
     "description": "Refal-5λ support for Visual Studio Code",
+    "author": {
+        "name": "Daniil Gavrilovsky"
+    },
+    "license": "MIT",
+    "icon": "images/icon.png",
     "version": "1.0.0",
     "engines": {
         "vscode": "^1.42.0"
@@ -9,6 +15,10 @@
     "categories": [
         "Programming Languages"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/GDVFox/vscode-refal-5-lambda.git"
+    },
     "contributes": {
         "languages": [{
             "id": "refal-5-lambda",
