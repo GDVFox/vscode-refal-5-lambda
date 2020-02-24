@@ -1,0 +1,141 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Refal-5λ",
+	"scopeName": "source.refal-5-lambda",
+	"patterns": [
+		{
+			"name": "comment.block.refal-5-lambda",
+			"comment": "Block comments",
+			"begin": "/\\*",
+			"captures": {
+				"0": {
+					"name": "punctuation.definition.comment.refal-5-lambda"
+				}
+			},
+			"end": "\\*/"
+		},
+		{
+			"name": "comment.line.double-slash.refal-5-lambda",
+			"comment": "Line comments",
+			"begin": "//",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.comment.refal-5-lambda"
+				}
+			},
+			"end": "$"
+		},
+		{
+			"name": "string.quoted.double.refal-5-lambda",
+			"comment": "Dobuel quoted string literals",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [ {"include": "#string_escaped_char"} ]
+		},
+		{
+			"name": "string.quoted.single.refal-5-lambda",
+			"comment": "Single quoted string literals",
+			"begin": "'",
+			"end": "'",
+			"patterns": [ {"include": "#string_escaped_char"} ]
+		},
+		{
+			"name": "constant.numeric.real.refal-5-lambda",
+			"comment": "Real number literals",
+			"match": "[+-]?\\b\\d+\\.\\d*([Ee]\\d+)?\\b"
+		},
+		{
+			"name": "constant.numeric.macrodigit.refal-5-lambda",
+			"comment": "Macrodigit literals",
+			"match": "\\b\\d+\\b"
+		},
+		{
+			"comment": "Function declarations",
+			"match": "^(\\$\\w*\\s+)?([a-zA-Z_]\\w*)\\s*(?={)",
+			"captures": {
+				"1": {
+					"patterns": [ {"include": "#modifiers"} ]
+				},
+				"2": {
+					"name": "entity.name.function.refal-5-lambda"
+				}
+			}
+		},
+		{
+			"comment": "Functions call",
+			"match": "(?<=<)([a-zA-Z_]\\w*)",
+			"captures": {
+				"1": {
+					"name": "support.function.refal-5-lambda"
+				}
+			}
+		},
+		{
+			"name": "punctuation.terminator.refal-5-lambda",
+			"comment": "Terminators",
+			"match": ";"
+		},
+		{
+			"include": "#brackets"
+		},
+		{
+			"include": "#modifiers"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#variables"
+		}
+	],
+	"repository": {
+		"brackets": {
+			"patterns": [
+				{
+					"name": "punctuation.other.bracket.curly.refal-5-lambda",
+					"match": "\\{|\\}"
+				},
+				{
+					"name": "punctuation.other.bracket.round.refal-5-lambda",
+					"match": "\\(|\\)"
+				},
+				{
+					"name": "punctuation.other.bracket.angle.refal-5-lambda",
+					"match": "\\<|\\>"
+				}
+			]
+		},
+		"modifiers": {
+			"patterns": [
+				{
+					"name": "storage.modifier.refal-5-lambda",
+					"match": "\\$\\b(ENTRY|EXTERN|EXTRN|EXTERNAL|EASTEREGG|ENUM|EENUM|SWAP|ESWAP|INCLUDE|SCOPEID|DRIVE|INLINE|SPEC)\\b"
+				},
+				{
+					"name": "invalid.illegal.unknown-modifier.refal-5-lambda",
+					"match": "\\$\\w+\\b"
+				}
+			]
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.other.refal-5-lambda",
+					"match": "\\b[ste]\\.[A-Za-z0-9_-]+\\b"
+				}
+			]
+		},
+		"string_escaped_char": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.refal-5-lambda",
+					"match": "\\\\([nrt\\\\'\"<>\\(\\)]|x[0-9a-fA-F]{2})"
+				},
+				{
+					"name": "invalid.illegal.unknown-escape.refal-5-lambda",
+					"match": "\\\\[^0-7xnrt\\\\'\"<>\\(\\)]"
+				}
+			]
+		}
+	}
+}

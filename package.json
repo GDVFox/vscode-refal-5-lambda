@@ -1,0 +1,25 @@
+{
+    "name": "refal-5-lambda-highlight",
+    "displayName": "Refal-5λ",
+    "description": "Refal-5λ support for Visual Studio Code",
+    "version": "1.0.0",
+    "engines": {
+        "vscode": "^1.42.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "refal-5-lambda",
+            "aliases": ["Refal-5λ", "refal-5-lambda"],
+            "extensions": [".ref",".refi"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "refal-5-lambda",
+            "scopeName": "source.refal-5-lambda",
+            "path": "./syntaxes/refal-5-lambda.tmLanguage.json"
+        }]
+    }
+}
