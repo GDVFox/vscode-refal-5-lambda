@@ -26,6 +26,17 @@
 			"end": "$"
 		},
 		{
+			"name": "meta.embedded.block.cpp",
+			"comment": "Native CPP",
+			"begin": "%%",
+			"captures": {
+				"0": {
+					"name": "punctuation.definition.embedded.cpp.refal-5-lambda"
+				}
+			},
+			"end": "%%"
+		},
+		{
 			"name": "string.quoted.double.refal-5-lambda",
 			"comment": "Dobuel quoted string literals",
 			"begin": "\"",
@@ -51,7 +62,7 @@
 		},
 		{
 			"comment": "Function declarations",
-			"match": "^(\\$\\w*\\s+)?([a-zA-Z_]\\w*)\\s*(?={)",
+			"match": "^(\\$\\w*\\s+)?([a-zA-Z_][\\w-]*)\\s*(?={)",
 			"captures": {
 				"1": {
 					"patterns": [ {"include": "#modifiers"} ]
@@ -63,7 +74,7 @@
 		},
 		{
 			"comment": "Functions call",
-			"match": "(?<=<)([a-zA-Z_]\\w*)",
+			"match": "(?<=<)([a-zA-Z_][\\w-]*)",
 			"captures": {
 				"1": {
 					"name": "support.function.refal-5-lambda"

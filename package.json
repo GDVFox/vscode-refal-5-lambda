@@ -29,7 +29,10 @@
         "grammars": [{
             "language": "refal-5-lambda",
             "scopeName": "source.refal-5-lambda",
-            "path": "./syntaxes/refal-5-lambda.tmLanguage.json"
+            "path": "./syntaxes/refal-5-lambda.tmLanguage.json",
+            "embeddedLanguages": {
+                "meta.embedded.block.cpp": "cpp"
+            }
         }]
     }
 }
