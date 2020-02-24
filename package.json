@@ -8,7 +8,7 @@
     },
     "license": "MIT",
     "icon": "images/icon.png",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "engines": {
         "vscode": "^1.42.0"
     },
@@ -20,19 +20,29 @@
         "url": "https://github.com/GDVFox/vscode-refal-5-lambda.git"
     },
     "contributes": {
-        "languages": [{
-            "id": "refal-5-lambda",
-            "aliases": ["Refal-5λ", "refal-5-lambda"],
-            "extensions": [".ref",".refi"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "refal-5-lambda",
-            "scopeName": "source.refal-5-lambda",
-            "path": "./syntaxes/refal-5-lambda.tmLanguage.json",
-            "embeddedLanguages": {
-                "meta.embedded.block.cpp": "cpp"
+        "languages": [
+            {
+                "id": "refal-5-lambda",
+                "aliases": [
+                    "Refal-5λ",
+                    "refal-5-lambda"
+                ],
+                "extensions": [
+                    ".ref",
+                    ".refi"
+                ],
+                "configuration": "./language-configuration.json"
             }
-        }]
+        ],
+        "grammars": [
+            {
+                "language": "refal-5-lambda",
+                "scopeName": "source.refal-5-lambda",
+                "path": "./syntaxes/refal-5-lambda.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.cpp": "cpp"
+                }
+            }
+        ]
     }
 }
