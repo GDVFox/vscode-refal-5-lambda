@@ -15,9 +15,9 @@
 			"end": "\\*/"
 		},
 		{
-			"name": "comment.line.double-slash.refal-5-lambda",
+			"name": "comment.line.star.refal-5-lambda",
 			"comment": "Line comments",
-			"begin": "//",
+			"begin": "\\*",
 			"beginCaptures": {
 				"0": {
 					"name": "punctuation.definition.comment.refal-5-lambda"
@@ -37,28 +37,62 @@
 			"end": "%%"
 		},
 		{
+			"patterns": [
+				{
+					"name": "constant.character.escape.refal-5-lambda",
+					"match": "\\\\([nrt\\\\'\"<>\\(\\)]|x[0-9a-fA-F]{2})"
+				},
+				{
+					"name": "invalid.illegal.unknown-escape.refal-5-lambda",
+					"match": "\\\\[^xnrt\\\\'\"<>\\(\\)]"
+				}
+			]
+		},
+		{
 			"name": "string.quoted.double.refal-5-lambda",
 			"comment": "Dobuel quoted string literals",
 			"begin": "\"",
 			"end": "\"",
-			"patterns": [ {"include": "#string_escaped_char"} ]
+			"patterns": [
+				{ "include": "#string_escaped_char" },
+				{
+					"name": "invalid.illegal.string-double.refal-5-lambda",
+					"match": "[^\"]*$"
+				}
+			]
 		},
 		{
 			"name": "string.quoted.single.refal-5-lambda",
 			"comment": "Single quoted string literals",
 			"begin": "'",
 			"end": "'",
-			"patterns": [ {"include": "#string_escaped_char"} ]
-		},
-		{
-			"name": "constant.numeric.real.refal-5-lambda",
-			"comment": "Real number literals",
-			"match": "[+-]?\\b\\d+\\.\\d*([Ee]\\d+)?\\b"
+			"patterns": [
+				{ "include": "#string_escaped_char" },
+				{
+					"name": "invalid.illegal.string-single.refal-5-lambda",
+					"match": "[^']*$"
+				}
+			]
 		},
 		{
 			"name": "constant.numeric.macrodigit.refal-5-lambda",
 			"comment": "Macrodigit literals",
 			"match": "\\b\\d+\\b"
+		},
+		{
+			"comment": "Include declarations",
+			"match": "(\\$INCLUDE)\\s*(\"([^\"]*)\")",
+			"captures": {
+				"1": {
+					"name": "keyword.other.include.refal-5-lambda"
+				},
+				"2": {
+					"name": "string.quoted.double.refal-5-lambda"
+				},
+				"3": {
+					"name": "entity.name.import.refal-5-lambda"
+				}
+			}
 		},
 		{
 			"comment": "Function declarations",
@@ -124,7 +158,7 @@
 			"patterns": [
 				{
 					"name": "storage.modifier.refal-5-lambda",
-					"match": "\\$\\b(ENTRY|EXTERN|EXTRN|EXTERNAL|EASTEREGG|ENUM|EENUM|SWAP|ESWAP|INCLUDE|SCOPEID|DRIVE|INLINE|SPEC)\\b"
+					"match": "\\$\\b(ENTRY|EXTERN|EXTRN|EXTERNAL|EASTEREGG|ENUM|EENUM|SWAP|ESWAP|SCOPEID|DRIVE|INLINE|SPEC)\\b"
 				},
 				{
 					"name": "invalid.illegal.unknown-modifier.refal-5-lambda",
@@ -148,7 +182,7 @@
 				},
 				{
 					"name": "invalid.illegal.unknown-escape.refal-5-lambda",
-					"match": "\\\\[^0-7xnrt\\\\'\"<>\\(\\)]"
+					"match": "\\\\[^xnrt\\\\'\"<>\\(\\)]"
 				}
 			]
 		}
