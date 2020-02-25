@@ -26,14 +26,15 @@
 			"end": "$"
 		},
 		{
-			"name": "meta.embedded.block.cpp",
-			"comment": "Native CPP",
+			"contentName": "meta.embedded.block.cpp",
+			"comment": "Embedded C++",
 			"begin": "%%",
 			"captures": {
 				"0": {
 					"name": "punctuation.definition.embedded.cpp.refal-5-lambda"
 				}
 			},
+			"patterns": [ { "include": "source.cpp" } ],
 			"end": "%%"
 		},
 		{
