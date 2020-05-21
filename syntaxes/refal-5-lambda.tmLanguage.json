@@ -17,7 +17,7 @@
 		{
 			"name": "comment.line.star.refal-5-lambda",
 			"comment": "Line comments",
-			"begin": "\\*",
+			"begin": "^\\*",
 			"beginCaptures": {
 				"0": {
 					"name": "punctuation.definition.comment.refal-5-lambda"
